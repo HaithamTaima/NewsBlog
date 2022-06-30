@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('catagory_translations', function (Blueprint $table) {
+        Schema::create('category_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('category_id')->unsigned();
-            $table->string('locale')->index();// ar en fr tr
+            $table->string('locale')->index();  // ar en fr tr
             $table->string('title')->nullable();
             $table->text('content')->nullable();
-            $table->unique(['category_id','locale']);
+            $table->unique(['category_id', 'locale']);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');        });
     }
 
